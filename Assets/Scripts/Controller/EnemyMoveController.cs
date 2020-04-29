@@ -46,7 +46,6 @@ public class EnemyMoveController
     }
     private void MoveSide()
     {
-        Debug.Log(OnScreenEdge());
         if (!OnScreenEdge())
         {
             Vector3 side = isLeft ? Vector3.left : Vector3.right;

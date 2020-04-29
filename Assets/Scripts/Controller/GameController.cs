@@ -35,13 +35,6 @@ public class GameController : MonoBehaviour
         spawner.SetSpawnSettings(settings);
     }
     
-    public void OnRestart()
-    {
-        ShowGameOver(false);
-        spawner.StartSpawnEnemies();
-        missedEnemies = 0;
-    }
-
     public void OnStart()
     {
         ShowMenu(false);
@@ -55,10 +48,16 @@ public class GameController : MonoBehaviour
         ShowGameOver(true);
     }
 
+    public void OnRestart()
+    {
+        ShowGameOver(false);
+        spawner.StartSpawnEnemies();
+        missedEnemies = 0;
+    }
     public void OnMissEnemy()
     {
         missedEnemies++;
-        if(missedEnemies > settings.LoseLimit)
+        if(missedEnemies >= settings.LoseLimit)
         {
             GameOver();
         }
